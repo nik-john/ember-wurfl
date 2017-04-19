@@ -1,40 +1,32 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - $HOME/.npm
-    - $HOME/.cache # includes bowers cache
-
+  - "$HOME/.npm"
+  - "$HOME/.cache"
 env:
-  # we recommend testing LTS's and latest stable release (bonus points to beta/canary)
-  - EMBER_TRY_SCENARIO=ember-lts-2.4
-  - EMBER_TRY_SCENARIO=ember-lts-2.8
-  - EMBER_TRY_SCENARIO=ember-release
-  - EMBER_TRY_SCENARIO=ember-beta
-  - EMBER_TRY_SCENARIO=ember-canary
-  - EMBER_TRY_SCENARIO=ember-default
-
+- EMBER_TRY_SCENARIO=ember-lts-2.4
+- EMBER_TRY_SCENARIO=ember-lts-2.8
+- EMBER_TRY_SCENARIO=ember-release
+- EMBER_TRY_SCENARIO=ember-beta
+- EMBER_TRY_SCENARIO=ember-canary
+- EMBER_TRY_SCENARIO=ember-default
 matrix:
   fast_finish: true
   allow_failures:
-    - env: EMBER_TRY_SCENARIO=ember-canary
-
+  - env: EMBER_TRY_SCENARIO=ember-canary
 before_install:
-  - npm config set spin false
-  - npm install -g bower phantomjs-prebuilt
-  - bower --version
-  - phantomjs --version
-
+- npm config set spin false
+- npm install -g bower phantomjs-prebuilt
+- bower --version
+- phantomjs --version
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  # Usually, it's ok to finish the test scenario without reverting
-  #  to the addon's original dependency state, skipping "cleanup".
-  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
+- node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
+deploy:
+  api_key:
+    secure: XWESCXoufIA2+SlNa+rAMYOTph2xzc1cUTKN5FepPoz9TQBPQovR/P3gwISradSTpxEDmFOa+uBeUht341+dHQsfhONczuMPBZdk3iWFQ0VM9Pca5bCvuQ1gUfP+oiuJuaJtRwZ8cdrKXy4bc5lvafgVXLqPEAQ9yBsbhdyv5tFuWB/58UJqGquKsVNFrQNGy+FYAaV7OjHpaNaA7/y6MEgBi0n2J1B5Y800BMJLuv6gF4tZcj8NS1NvcHNVUIvZ/f+LR/Xz3xg/dqG1VPltXpQHqvZiYxURbYXr6TsPFHkx8cWJixcftJQNuzushIhR4xVIyRXNHj2iKxPPZr2VGYho73rlWouejWv+PITp2OvPvs/2dSAFVthLctIRJ+A15p0mqfKWSbHAWgQnUBgjeNPlXXy8EVOQtWDi/ZaTAT2YRKOk/6ddWqaNFWIHIeX1/Z+I2IilZqDez/v1f0kGknRLuS4GbaZj3M3nO0iNgIRMcr6TlP8a/HrCbBPbB8zvBFPsgzBOa8hj/68i46c3llE82XOGT65gCCTP9krCjOpIUyglGecGZ4e308bE3Y/PVg5a0Sb1Zn4oc+EgGpvdy+XLW+uhjqJyS/vPtGyUL5JfBdmwhUbtj0/TlFdzTW1ZIoJ909gWR65GsfgTvDHS8KVZvAl5YjVp86OumrBCLgM=
