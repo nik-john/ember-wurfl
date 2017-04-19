@@ -28,5 +28,7 @@ install:
 script:
 - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
 deploy:
+  email: nikhil.john.88@gmail.com
+  provider: npm
   api_key:
     secure: XWESCXoufIA2+SlNa+rAMYOTph2xzc1cUTKN5FepPoz9TQBPQovR/P3gwISradSTpxEDmFOa+uBeUht341+dHQsfhONczuMPBZdk3iWFQ0VM9Pca5bCvuQ1gUfP+oiuJuaJtRwZ8cdrKXy4bc5lvafgVXLqPEAQ9yBsbhdyv5tFuWB/58UJqGquKsVNFrQNGy+FYAaV7OjHpaNaA7/y6MEgBi0n2J1B5Y800BMJLuv6gF4tZcj8NS1NvcHNVUIvZ/f+LR/Xz3xg/dqG1VPltXpQHqvZiYxURbYXr6TsPFHkx8cWJixcftJQNuzushIhR4xVIyRXNHj2iKxPPZr2VGYho73rlWouejWv+PITp2OvPvs/2dSAFVthLctIRJ+A15p0mqfKWSbHAWgQnUBgjeNPlXXy8EVOQtWDi/ZaTAT2YRKOk/6ddWqaNFWIHIeX1/Z+I2IilZqDez/v1f0kGknRLuS4GbaZj3M3nO0iNgIRMcr6TlP8a/HrCbBPbB8zvBFPsgzBOa8hj/68i46c3llE82XOGT65gCCTP9krCjOpIUyglGecGZ4e308bE3Y/PVg5a0Sb1Zn4oc+EgGpvdy+XLW+uhjqJyS/vPtGyUL5JfBdmwhUbtj0/TlFdzTW1ZIoJ909gWR65GsfgTvDHS8KVZvAl5YjVp86OumrBCLgM=
