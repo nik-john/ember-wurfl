@@ -4,12 +4,15 @@
 
 module.exports = {
   name: 'ember-wurfl',
+
   contentFor : function(type, config) {
-    var content = '';
-    if (type === 'body') {
-      var src = '//wurfl.io/wurfl.js';
+    if (type === 'head') {
+      var src = 'https://wurfl.io/wurfl.js';
+      var content = '<script type="text/javascript" src="' + src + '"></script>';
+
+      return content;
     }
-    content = '<script type="text/javascript" src="' + src + '"></script>';
-    return content;
+
+    return '';
   }
 };
